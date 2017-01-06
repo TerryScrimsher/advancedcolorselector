@@ -4,22 +4,105 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<script src="js/jquery-3.1.1.min.js" type="text/javascript" ></script>
+  <script src="js/angular.min.js" type="text/javascript" ></script>
 	<script src="js/app.js" type="text/javascript" ></script>
 <!--
-	<script src="js/angular.min.js" type="text/javascript" ></script>
 	<script src="js/angular-route.min.js" type="text/javascript" ></script>
 -->
 	
 	
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
+  
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-sm-6">  
+        <canvas width="300" height="383" id="canvas_picker"></canvas>
+        <div id="selectedcolor"></div>
+      </div>
+      
+      <div class="col-sm-6">
+        <table>
+          <tbody>
+            <tr>
+              <td>R:</td>
+              <td><input type="number" ng-model="rval" ng-change="change()"></td>
+              <td><input type="range" ng-model="rval" min=0 max=255 ng-change="change()"></td>
+            </tr>  
+            <tr>
+              <td>G:</td>
+              <td><input type="number" ng-model="gval" ng-change="change()"></td>
+              <td><input type="range" ng-model="gval" min=0 max=255 ng-change="change()"></td>
+            </tr> 
+            <tr>
+              <td>B:</td>
+              <td><input type="number" ng-model="bval" ng-change="change()"></td>
+              <td><input type="range" ng-model="bval" min=0 max=255 ng-change="change()"></td>
+            </tr> 
+          </tbody>
+        </table>
 
-	<canvas width="400" height="400" id="canvas_picker"></canvas>
-	<div id="hex">HEX: <input type="text"></input></div>
-	<div id="rgb">RGB: <input type="text"></input></div>
-	<div id="selectedcolor"></div>
+        <hr>
+        
+        <code id="code">colors="#ffffff,#ffffff,#ffffff,#ffffff,#ffffff"</code>
+        
+        <hr>
+
+        <div id="hex">HEX: <input type="text"></input></div>
+        <div id="rgb">RGB: <input type="text"></input></div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-12">
+        <table>
+          <tbody>
+            <tr>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td id="color1" class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            </tr>
+            <tr>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td id="color2" class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            </tr>
+            <tr>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td id="color3" class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            </tr>
+            <tr>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td id="color4" class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            </tr>
+            <tr>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td id="color5" class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            <td class="boxshape">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+
+    </div>
+  </div>
+
+<!--  <button class="btn" data-clipboard-target="#code">Copy</button>-->
 
 </body>
 </html>
